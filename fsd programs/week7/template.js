@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 
-// Display student form
+
 app.get('/', (req, res) => {
     res.render('student', {
         error: null,
@@ -15,13 +15,12 @@ app.get('/', (req, res) => {
     });
 });
 
-// Handle registration
+
 app.post('/register', (req, res) => {
 
     const username = req.body.username;
     const age = req.body.age;
 
-    // Validation
     if (!username || !age) {
         return res.render('student', {
             error: 'Username and Age are required',
@@ -36,7 +35,6 @@ app.post('/register', (req, res) => {
         });
     }
 
-    // Successful registration
     res.render('student', {
         error: null,
         user: {
